@@ -445,6 +445,7 @@ const updateUIBasedOnAuth = (user) => {
   } else {
     productList.classList.add("hidden"); // إخفاء المنتجات
     loginButton.classList.remove("hidden"); // إظهار زر تسجيل الدخول
+    showNotification("سجل دخولك عبر جوجل اولا لتري منتجاتنا", 'error');
   }
 };
 
