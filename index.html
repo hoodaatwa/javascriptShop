@@ -458,6 +458,26 @@ onAuthStateChanged(auth, (user) => {
 const loginButton = document.getElementById("login-btn");
 loginButton.addEventListener("click", loginWithGoogle);
 
+
+
+
+import { signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+// وظيفة لتسجيل الخروج
+const logout = async () => {
+  try {
+    await signOut(auth);
+    showNotification("تم تسجيل الخروج بنجاح!", "success");
+  } catch (error) {
+    showNotification("خطأ في تسجيل الخروج", "error");
+    console.error(error);
+  }
+};
+
+// ربط الزر بوظيفة تسجيل الخروج
+const logoutButton = document.getElementById("logout-btn");
+logoutButton.addEventListener("click", logout);
+
   </script>
 
 </head>
@@ -554,8 +574,13 @@ loginButton.addEventListener("click", loginWithGoogle);
     <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8 bottom-0">
         <nav class="flex flex-wrap justify-center -mx-5 -my-2">
             <div class="px-5 py-2">
-                <a href="#" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                <a href="https://hoodaatwa.github.io/Main/" class="text-base leading-6 text-gray-500 hover:text-gray-900">
                     ادواتنا
+                </a>
+            </div>
+            <div class="px-5 py-2">
+                <a href="#" id="logout-btn" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                    تسجيل الخروج
                 </a>
             </div>
 
