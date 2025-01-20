@@ -439,12 +439,16 @@ const loginWithGoogle = async () => {
 const updateUIBasedOnAuth = (user) => {
   const productList = document.getElementById("product-list");
   const loginButton = document.getElementById("modal-overlay");
+  const nomore = document.getElementById("nomore");
+
 
   if (user) {
     productList.classList.remove("hidden"); // إظهار المنتجات
+    renderProducts(true);
     loginButton.classList.add("hidden"); // إخفاء زر تسجيل الدخول
+    nomore.classList.add("hidden");
   } else {
-    productList.classList.add("hidden"); // إخفاء المنتجات
+    productList.classList.remove("hidden"); 
     loginButton.classList.remove("hidden"); // إظهار زر تسجيل الدخول
     showNotification("سجل دخولك عبر جوجل اولا لتري منتجاتنا", 'error');
   }
@@ -478,6 +482,13 @@ const logout = async () => {
 // ربط الزر بوظيفة تسجيل الخروج
 const logoutButton = document.getElementById("logout-btn");
 logoutButton.addEventListener("click", logout);
+
+
+
+
+
+
+
 
   </script>
 
