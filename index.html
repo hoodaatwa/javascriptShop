@@ -153,10 +153,15 @@
         loadMoreButton.classList.remove("hidden"); 
         nomore.classList.add("hidden");
 
-      } else {
-        loadMoreButton.classList.add("hidden");
-        nomore.classList.remove("hidden");
-      }
+      } else if (!isLoadMore && !filteredProducts && products.length == 0) {
+    loadMoreButton.classList.add("hidden");
+    nomore.classList.remove("hidden"); // عرض زر "لا مزيد من المنتجات"
+    return; // إنهاء الوظيفة
+  } else if (products.length == 0) {
+    loadMoreButton.classList.add("hidden");
+    nomore.classList.add("hidden"); // عرض زر "لا مزيد من المنتجات"
+    return; // إنهاء الوظيفة
+  }
 
       products.forEach((product) => {
         const unitPrice = (product.price / product.quantity).toFixed(2);
