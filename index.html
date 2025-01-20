@@ -293,7 +293,7 @@
   const totalAmountButton = `
     <div class="mt-4 text-center">
       <button class="mb-2 me-2 inline-flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-primary-300">
-        دفع المبلغ الإجمالي: ${totalPrice.toFixed(2)} دولار
+        تأكيد دفع مبلغ : ${totalPrice.toFixed(2)} دولار
       </button>
     </div>
   `;
@@ -507,9 +507,10 @@ logoutButton.addEventListener("click", logout);
   <!-- Modal Content -->
   <div 
     id="modal-content" 
-    class="bg-white shadow-lg p-8 relative w-full h-full flex items-center justify-center"
+    class="bg-gradient-to-t from-indigo-50 to-slate-50 shadow-lg p-8 relative w-full h-full flex items-center justify-center flex-nowrap flex-col overflow-auto"
   >
-
+<div class="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent font-bold text-3xl text-slate-600 mb-12 md:mb-16 text-center">JavaScript Shop | متجر المنتجات</div>
+<div class="font-bold text-xl text-slate-600 mb-12 md:mb-16 text-center">متجرنا يقدم أفضل المنتجات بأسعار تنافسية مع تجربة تسوق مميزة عبر الإنترنت. اكتشف الآن!</div>
     <!-- Google Login Button -->
     <button
       id="login-btn"
