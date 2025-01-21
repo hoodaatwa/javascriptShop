@@ -295,13 +295,25 @@
   });
 
   const totalAmountButton = `
-    <div class="mt-4 text-center">
-      <button class="mb-2 me-2 inline-flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-primary-300">
-        تأكيد دفع مبلغ : ${totalPrice.toFixed(2)} دولار
-      </button>
-    </div>
-  `;
+  <div class="mt-4 text-center">
+    <a href="mailto:hoodaatwa222@gmail.com?subject=تأكيد محتويات السلة&body=${encodeURIComponent(cartDetails())}"
+      class="mb-2 me-2 inline-flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-primary-300">
+      تأكيد دفع مبلغ : ${totalPrice.toFixed(2)} دولار
+    </a>
+  </div>
+`;
   cartList.insertAdjacentHTML("beforeend", totalAmountButton);
+
+// دالة لجمع محتويات السلة كجزء من الرسالة
+function cartDetails() {
+  let details = "محتويات السلة:\n\n";
+  Object.values(cart).forEach(product => {
+    details += `${product.name} - ${product.quantity} × ${(product.price / product.maxQuantity * product.quantity).toFixed(2)} دولار\n`;
+  });
+  details += `\nالمجموع النهائي: ${totalPrice.toFixed(2)} دولار\n`;
+  details +=`ملحوظة : ستم الاتفاق علي طريقة الدفع بعد التواصل`;
+  return details;
+}
 
   // التعامل مع زيادة أو تقليل الكميات
   document.querySelectorAll("input[type='number']").forEach(input => {
