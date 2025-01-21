@@ -140,7 +140,7 @@
       const spinner = document.getElementById("search-spinner");
       const nomore = document.getElementById("nomore");
 
-
+      
       spinner.classList.remove("hidden"); // إظهار الـ spinner أثناء التحميل
       const products = filteredProducts || await fetchProductsWithPagination();
       spinner.classList.add("hidden"); // إخفاء الـ spinner بعد التحميل
@@ -153,16 +153,15 @@
         loadMoreButton.classList.remove("hidden"); 
         nomore.classList.add("hidden");
 
-      } else if (!isLoadMore && !filteredProducts && products.length == 0) {
+      } else if (!isLoadMore && !filteredProducts) {
     loadMoreButton.classList.add("hidden");
     nomore.classList.remove("hidden"); // عرض زر "لا مزيد من المنتجات"
     return; // إنهاء الوظيفة
-  } else if (products.length == 0) {
+  } else {
     loadMoreButton.classList.add("hidden");
-    nomore.classList.add("hidden"); // عرض زر "لا مزيد من المنتجات"
+    nomore.classList.remove("hidden"); // عرض زر "لا مزيد من المنتجات"
     return; // إنهاء الوظيفة
-  }
-
+  } 
       products.forEach((product) => {
         const unitPrice = (product.price / product.quantity).toFixed(2);
         const productCard = `
