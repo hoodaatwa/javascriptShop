@@ -155,11 +155,11 @@
 
       } else if (!isLoadMore && !filteredProducts) {
     loadMoreButton.classList.add("hidden");
-    nomore.classList.remove("hidden"); // عرض زر "لا مزيد من المنتجات"
+    nomore.classList.add("hidden"); // عرض زر "لا مزيد من المنتجات"
     return; // إنهاء الوظيفة
   } else {
     loadMoreButton.classList.add("hidden");
-    nomore.classList.remove("hidden"); // عرض زر "لا مزيد من المنتجات"
+    nomore.classList.add("hidden"); // عرض زر "لا مزيد من المنتجات"
     return; // إنهاء الوظيفة
   } 
       products.forEach((product) => {
